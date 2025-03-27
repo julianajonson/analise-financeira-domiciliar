@@ -64,7 +64,8 @@ As transações são agrupadas por categoria e os valores são agregados.
 
 Visualização:
 
-A aplicação gera gráficos e tabelas para exibir as análises financeiras de forma interativa.
+A aplicação gera gráficos e tabelas para exibir as análises financeiras de forma interativa. 
+Veja os exemplos abaixo: 
 
 ![Exemplo de como aparecerá o gráfico pizza de gastos x recebimentos](assets/gastosxreceb.png)
 ![Exemplo de como aparecerá o gráfico dos top gastos](assets/topgastos.png)
