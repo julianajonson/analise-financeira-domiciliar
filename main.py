@@ -36,6 +36,7 @@ PROMPT2 = """""
     Aqui estão extratos bancários no formato JSON: {data_json}. 
     Utilize esses dados para categorizar cada transação em categorias de acordo com a descrição.
     As categorias devem ser divididas em  "alimentação", "saúde", "educação", "mercado", "lazer", "pet", e o que nao se encaixar nessas, inclua na categoria "outras". 
+    Traga a chave como "transações"
     Por favor, mantenha o tipo de cada transação (gastos ou recebimentos) na resposta, e nao altere a descrição original dos dados. 
     A categoria dos recebimentos é "salário".
     """
@@ -109,7 +110,7 @@ def categoriza_extrato (data_json):
     )
     msg = completion.choices[0].message.content
     data_gpt2 = json.loads(msg)
-
+    print(data_gpt2)
     return data_gpt2
 
 def categorias_agrupadas(data_gpt2):
