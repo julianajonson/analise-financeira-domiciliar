@@ -66,9 +66,10 @@ Visualização:
 
 A aplicação gera gráficos e tabelas para exibir as análises financeiras de forma interativa.
 
-![Exemplo de como aparecerá o gráfico pizza de gastos x recebimentos](/Users/Jujuba/Projetos/analise-financeira-domiciliar/assets/gastosxreceb.png)
-![Exemplo de como aparecerá o gráfico dos top gastos](/Users/Jujuba/Projetos/analise-financeira-domiciliar/assets/gastosxreceb.png)
-![Exemplo de como aparecerá o gráfico com gastos categorizados](/Users/Jujuba/Projetos/analise-financeira-domiciliar/assets/categoria.png)
+![Exemplo de como aparecerá o gráfico pizza de gastos x recebimentos](assets/gastosxreceb.png)
+![Exemplo de como aparecerá o gráfico dos top gastos](assets/topgastos.png)
+![Exemplo de como aparecerá o gráfico com gastos categorizados](assets/categoria.png)
+
 
 ## Contribuição
-Contribuições são bem-vindas! Se você deseja melhorar o projeto ou adicionar novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request. /Users/Jujuba/Projetos/analise-financeira-domiciliar/assets/categoria.png
+Contribuições são bem-vindas! Se você deseja melhorar o projeto ou adicionar novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request.
