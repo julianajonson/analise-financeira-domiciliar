@@ -68,7 +68,7 @@ A aplicação gera gráficos e tabelas para exibir as análises financeiras de f
 Veja os exemplos abaixo: 
 
 ![Exemplo de como aparecerá o gráfico pizza de gastos x recebimentos](assets/gastosxreceb.png)
-![Exemplo de como aparecerá o gráfico dos top gastos](assets/topgastos.png)
+![Exemplo de como aparecerá o gráfico dos top gastos](assets/image.png)
 ![Exemplo de como aparecerá o gráfico com gastos categorizados](assets/categoria.png)
 
 ## Observações
