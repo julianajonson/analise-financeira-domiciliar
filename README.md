@@ -18,21 +18,21 @@ Visualização Interativa: Dashboards e gráficos interativos para análise dos 
 
 ## Como usar:
 
-* Pré-requisitos
+Pré-requisitos
 
-Python 3.7+
+* Python 3.7+
 
-Streamlit
+* Streamlit
 
-pdfplumber
+* Pdfplumber
 
-pandas
+* Pandas
 
-Bibliotecas de acesso à API OpenAI
+* Bibliotecas de acesso à API OpenAI
 
 Consulte o arquivo requirements.txt para ver e instalar todas as dependências necessárias.
 
-* Para iniciar a aplicação, execute o comando abaixo na raiz do projeto:
+Para iniciar a aplicação, execute o comando abaixo na raiz do projeto:
 
 streamlit run app.py
 
@@ -72,7 +72,7 @@ Veja os exemplos abaixo:
 ![Exemplo de como aparecerá o gráfico com gastos categorizados](assets/categoria.png)
 
 ## Observações
-Em nosso projeto, identificamos um desafio na categorização das transações realizadas via Pix. Atualmente, muitas dessas operações envolvem pagamentos onde o recebedor é uma pessoa física. Isso dificulta a identificação do verdadeiro contexto da transação, pois o modelo não consegue determinar se o pagamento foi destinado a uma instituição como uma escola, um mercadinho ou outro tipo de estabelecimento. Como resultado, essas transações acabam sendo classificadas na categoria "outros". Essa limitação ressalta a necessidade de aprimorarmos a lógica de categorização para considerar novos parâmetros que permitam uma melhor distinção entre os diferentes tipos de recebedores.
+Nesse projeto, foi identificado um desafio na categorização das transações realizadas via Pix. Atualmente, muitas dessas operações envolvem pagamentos onde o recebedor é uma pessoa física. Isso dificulta a identificação do verdadeiro contexto da transação, pois o modelo não consegue determinar se o pagamento foi destinado a uma instituição como uma escola, um mercadinho ou outro tipo de estabelecimento. Como resultado, essas transações acabam sendo classificadas na categoria "outros". Essa limitação ressalta a necessidade de aprimorarmos a lógica de categorização para considerar novos parâmetros que permitam uma melhor distinção entre os diferentes tipos de recebedores.
 
 ## Contribuição
 Contribuições são bem-vindas! Se você deseja melhorar o projeto ou adicionar novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request.
