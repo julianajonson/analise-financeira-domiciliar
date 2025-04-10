@@ -2,13 +2,15 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 def exibir_graficos(df_total,df_gastos):
-    """Exibe os gráficos pizza e de barras 
+    """
+    Exibe os gráficos pizza e de barras 
+    
     Args:
-    df_total (pd.Dataframe): Dataframe com todas as transações (gastos e recebimentos)
-    df_gastos (pd.Dataframe): Dataframe com transações apenasa dos gastos
+        df_total (pd.Dataframe): Dataframe com todas as transações (gastos e recebimentos)
+        df_gastos (pd.Dataframe): Dataframe com transações apenasa dos gastos
 
     Returns:
-    None
+         None
     
     """
 
@@ -24,10 +26,10 @@ def plota_grafico_pizza(df_total, df_gastos):
     Plota um gráfico de pizza que mostra o total de gastos com o total de recebimentos.
 
     Args:
-    df_total (pd.DataFrame): DataFrame com todas as transações (coluna 'tipo' e 'valor').
+        df_total (pd.DataFrame): DataFrame com todas as transações (coluna 'tipo' e 'valor').
 
     Returns:
-    None
+        None
     """
 
     df_grouped = df_total.groupby('tipo')['valor'].sum().reset_index()
