@@ -43,10 +43,10 @@ def ranqueia_gatos(df_gastos):
     Retorna um DataFrame com as 5 categorias de gasto de maior valor.
 
     Args:
-    df_gastos (pd.DataFrame): DataFrame contendo transações de gastos (colunas 'descrição' e 'valor').
+        df_gastos (pd.DataFrame): DataFrame contendo transações de gastos (colunas 'descrição' e 'valor').
 
     Returns:
-    pd.DataFrame: DataFrame com as 5 descrições de gasto mais altas, ordenado em ordem decrescente de valor.
+        pd.DataFrame: DataFrame com as 5 descrições de gasto mais altas, ordenado em ordem decrescente de valor.
     """
    
     df_gastos_agrupados = df_gastos.groupby('descrição')['valor'].sum().reset_index()
@@ -61,10 +61,10 @@ def plot_grafico_mais_gastos(df_head):
     Plota um gráfico de barras mostrando os 5 maiores gastos.
 
     Args:
-    df_head (pd.DataFrame): DataFrame resultante de ranqueia_gatos, com colunas 'descrição' e 'valor'.
+        df_head (pd.DataFrame): DataFrame resultante de ranqueia_gatos, com colunas 'descrição' e 'valor'.
 
     Returns:
-    None
+        None
     """
 
     fig2, ax2 = plt.subplots()
@@ -80,10 +80,10 @@ def plota_graficos_categ(df_agg):
     Plota um gráfico de barras dos gastos agrupados por categoria, excluindo 'salário'.
 
     Args:
-    df_agg (pd.Series): Série Pandas com o total de gastos por categoria.
+        df_agg (pd.Series): Série Pandas com o total de gastos por categoria.
 
     Returns:
-    None
+        None
     """
     fig, ax = plt.subplots()
     df_agg.plot(kind='bar', ax=ax)
