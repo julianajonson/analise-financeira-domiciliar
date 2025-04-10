@@ -32,7 +32,7 @@ Este é um exemplo de saída esperado:
     }]
 }
 """
-PROMPT2 = """""
+PROMPT2 = """"
     Aqui estão extratos bancários no formato JSON: {data_json}. 
     Utilize esses dados para categorizar cada transação em categorias de acordo com a descrição.
     As categorias devem ser divididas em  "alimentação", "saúde", "educação", "mercado", "lazer", "pet", e o que nao se encaixar nessas, inclua na categoria "outras". 
@@ -42,6 +42,21 @@ PROMPT2 = """""
     """
 
 def processa_extrato(uploaded_files):
+    """
+    Processa uma lista de arquivos de extrato em PDF.
+    Para cada arquivo, extrai o texto completo e, em seguida, converte em
+    DataFrames de total, gastos e recebimentos.
+
+    Args:
+        uploaded_files (list[file-like]): Lista de objetos de arquivo PDF enviados.
+
+    Returns:
+        tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame] ou None:
+            - df_total: concatenação de gastos e recebimentos.
+            - df_gastos: DataFrame apenas com as transações de gasto.
+            - df_recebimentos: DataFrame apenas com as transações de recebimento.
+            Se não houver arquivos válidos, retorna None.
+    """
     extrato_completo = recebe_extrato(uploaded_files)
     df_total, df_gastos, df_recebimentos = le_extrato(extrato_completo)
     if not extrato_completo:
@@ -51,6 +66,14 @@ def processa_extrato(uploaded_files):
         return df_total, df_gastos, df_recebimentos
 
 def recebe_extrato(uploaded_files):
+    """
+    Lê uma lista de arquivos PDF e extrai todo o texto concatenado.
+
+    Args:
+        uploaded_files (list[file-like]): Lista de objetos de arquivo PDF.
+
+    Returns:
+        Texto completo extraído de todos os PDFs."""
   
     if uploaded_files: 
         extrato_completo = ""
@@ -66,6 +89,19 @@ def recebe_extrato(uploaded_files):
         return extrato_completo
     
 def le_extrato(extrato_completo: str):
+    """Converte o texto do extrato em DataFrames de gastos e recebimentos
+    usando um modelo de linguagem (GPT).
+
+    Args:
+        extrato_completo (str): Texto bruto extraído dos PDFs.
+
+    Returns:
+        tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame] ou None:
+            - df_total: concatenação de gastos e recebimentos.
+            - df_gastos: DataFrame de transações de gasto.
+            - df_recebimentos: DataFrame de transações de recebimento.
+            Se extrato_completo for vazio ou None, retorna None."""
+
     if extrato_completo:
         client = OpenAI()
 
@@ -97,6 +133,17 @@ def le_extrato(extrato_completo: str):
         return None
 
 def categoriza_extrato (data_json):
+    """
+    Classifica as transações de um extrato em categorias definidas
+    usando um modelo de linguagem (GPT).
+
+    Args:
+        data_json (dict ou list): JSON com transações já extraídas.
+
+    Returns:
+        JSON retornado pelo modelo contendo as transações
+        com a categoria atribuída.
+    """
     if data_json:
         client = OpenAI()
         completion = client.chat.completions.create(
@@ -114,6 +161,15 @@ def categoriza_extrato (data_json):
     return data_gpt2
 
 def categorias_agrupadas(data_gpt2):
+    """
+    Agrupa transações por categoria e soma seus valores, excluindo 'salário'.
+
+    Args:
+        data_gpt2 (dict ou list): JSON com transações categorizadas.
+
+    Returns:
+        pd.Series: Série Pandas com o total de gastos por categoria.
+    """
     if data_gpt2:
         df_categoria = pd.DataFrame(data_gpt2)    
         df_normalized = pd.json_normalize(df_categoria['transações'])
